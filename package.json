@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "nodemon build/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc -w",
     "push": "git add . && git commit -m \"Repository update\" && git push origin main"
   },
   "repository": {
@@ -22,5 +23,27 @@
   "bugs": {
     "url": "https://github.com/Ender-osur/BE-node_microservices/issues"
   },
-  "homepage": "https://github.com/Ender-osur/BE-node_microservices#readme"
+  "homepage": "https://github.com/Ender-osur/BE-node_microservices#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "chalk": "^4.1.2",
+    "cors": "^2.8.5",
+    "express": "^4.21.1",
+    "formidable": "^3.5.2",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "nanoid": "^3.3.7",
+    "pg-promise": "^11.10.2"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/formidable": "^3.4.5",
+    "@types/jsonwebtoken": "^9.0.7",
+    "@types/morgan": "^1.9.9",
+    "@types/pg-promise": "^5.4.3",
+    "dotenv": "^16.4.5",
+    "nodemon": "^3.1.7"
+  }
 }

@@ -30,9 +30,9 @@ class Server {
     this.app.listen(this.app.get("PORT"), () => {
       console.log("Backend is running 🚀 in this PORT: ", this.app.get("PORT"));
       console.log("ᕦ( ᴼ ڡ ᴼ )ᕤ");
-      console.log(chalk.green.bold("🠆 "), "Local: ", chalk.cyan(`http://localhost:${chalk.cyan.bold(`${this.app.get("PORT")}`)}`));
+      console.log(chalk.green.bold("🠆 "), "Local: ", chalk.cyan.underline(`http://localhost:${chalk.cyan.bold(`${this.app.get("PORT")}`)}`));
       console.log(chalk.green.bold("🠆 "), chalk.green("You can use this styles with Chalk"));
-      console.log(chalk.green.bold("🠆 "), chalk.green("Visit my github: "), chalk.cyan.bold.bgRed("https://github.com/Ender-osur"));
+      console.log(chalk.green.bold("🠆 "), chalk.green(`Visit my github: ${chalk.black.bold.bgCyan.underline("https://github.com/Ender-osur")}`));
     });
   }
 }

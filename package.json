@@ -1,0 +1,26 @@
+{
+  "name": "@osurdev/be_node",
+  "version": "1.0.0",
+  "description": "Backend with node for create microservices",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon build/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "push": "git add . && git commit -m \"Repository update\" && git push origin main"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Ender-osur/BE-Node_microservices.git"
+  },
+  "keywords": [
+    "node",
+    "backend",
+    "microservices"
+  ],
+  "author": "Ender Garizabal Sobrino",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ender-osur/BE-node_microservices/issues"
+  },
+  "homepage": "https://github.com/Ender-osur/BE-node_microservices#readme"
+}

@@ -4,7 +4,7 @@ import { optionsPG } from "./optionsPG";
 
 dotenv.config({ path: "variables.env" });
 
-const HOST_F = String(process.env.HOST_F);
+const HOST_F = String(process.env.HOST);
 const PORT_F = Number(process.env.PORT);
 const DB_F = String(process.env.DB);
 const DB_USER_F = String(process.env.DB_USER);
@@ -27,7 +27,7 @@ pool
     myConn.done();
   })
   .catch((myError) => {
-    console.log("ERROR: ", myError);
+    console.log("debConnection:::::ERROR: ", myError);
   });
 
 export default pool;

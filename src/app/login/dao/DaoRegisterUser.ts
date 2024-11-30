@@ -1,12 +1,15 @@
 import encode from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { Response } from "express";
+import dotenv from "dotenv";
 
 import Access from "../entity/Access";
 import InfoToken from "../entity/InfoToken";
-import pool from "@/config/connection/debConnection";
+import pool from "../../../config/connection/debConnection";
 import { SQL_Access } from "../repository/sql_access";
 import { SQL_User } from "../repository/sql_register";
+
+dotenv.config({path: "variables.env"});
 
 class DaoRegisterUser {
   protected static async register(AccessObj: Access, res: Response): Promise<any> {
@@ -24,7 +27,7 @@ class DaoRegisterUser {
             AccessObj.userCod.userLastNames,
           ]);
           const newUserCod = user.userCod;
-          await ask.none(SQL_User.CREATE_USER, [newUserCod, AccessObj.accessEmail, encoded]);
+          await ask.none(SQL_User.CREATE_ACCESS, [newUserCod, AccessObj.accessEmail, encoded]);
 
           await ask.none(SQL_Access.REGISTER_INPUT, newUserCod);
           const fullInfo: any = await ask.result(SQL_Access.DATA_TOKEN, AccessObj.accessEmail);
@@ -40,13 +43,13 @@ class DaoRegisterUser {
             res.status(400).json({respuesta: "The email already exists"});
             break;
           case 2:
-            const tokenOk = jwt.sign(token, "clavesupersecreta", {expiresIn: "8h"});
+            const tokenOk = jwt.sign(token, process.env.JWT_SECRET as string, {expiresIn: "8h"});
             res.status(200).json(tokenOk);
             break;
         }
       })
       .catch((myError) => {
-        console.log("ERROR", myError);
+        console.log("DaoRegisterUser:::::ERROR", myError);
         res.status(400).json({ response: "Error creating user" });
       });
   }

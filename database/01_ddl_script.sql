@@ -2,7 +2,7 @@ CREATE TABLE access(
   user_cod int4 not null,
   access_email VARCHAR(150) not null,
   access_key VARCHAR(150) not null,
-  acces_uuid VARCHAR(150) not null,
+  access_uuid VARCHAR(150) not null,
   CONSTRAINT pk_access PRIMARY KEY (user_cod)
 );
 

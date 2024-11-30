@@ -4,6 +4,9 @@ import express from "express";
 import chalk from "chalk";
 import loginController from "../../app/login/controller/LoginController";
 import userController from "../../app/login/controller/UserController";
+import security from "../../middlewares/Security";
+import ptRouteAPI from "../../app/typesProducts/route/ProductTypeRoute";
+import pRouteApi from "../../app/products/route/ProductRoute";
 
 class Server {
   public app: express.Application;
@@ -25,6 +28,9 @@ class Server {
   public loadRoutes():void {
     this.app.use("/api/user", userController.createNewUser);
     this.app.use("/api", loginController.login);
+
+    this.app.use("/api/product-type", security.checkToken, ptRouteAPI);
+    this.app.use("/v1/api/product", security.checkToken, pRouteApi);
   }
 
   public start(): void {
